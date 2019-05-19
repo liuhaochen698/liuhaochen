@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.div1{
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    background: #ffffff;
+    border: 1px dashed #000000;
+}
+.div2{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #ffffff;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    position: relative;
+}
+.div3{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+
+}
+.div4{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(30deg)
+}
+.div5{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(60deg)
+}
+.div6{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(90deg)
+}
+.div7{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(120deg)
+}
+.div8{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(150deg)
+}
+.div9{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(180deg)
+}
+.div10{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(210deg)
+}
+.div11{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(240deg)
+}
+.div12{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(270deg)
+}
+.div13{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(300deg)
+}
+.div14{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(330deg)
+}
+.div15{
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(360deg)
+}
+.small{
+    position: absolute;
+    width: 1px;
+    height: 5px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(6deg)
+}
+.small1{
+    position: absolute;
+    width: 1px;
+    height: 5px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(12deg)
+}
+.small2{
+    position: absolute;
+    width: 1px;
+    height: 5px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(18deg)
+}
+.small3{
+    position: absolute;
+    width: 1px;
+    height: 5px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(24deg)
+}
+.small4{
+    position: absolute;
+    width: 1px;
+    height: 5px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(36deg)
+}
+.small5{
+    position: absolute;
+    width: 1px;
+    height: 5px;
+    background: #000;
+    left: 50%;
+    transform-origin: 0px 100px;
+    transform: rotate(42deg)
+}
+.hour{
+    width: 3px;
+    height: 20px;
+    background: red;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: 50% 18px;
+    animation-name: test2;
+    animation-timing-function: linear;
+    animation-duration: 43200s;
+    animation-iteration-count: infinite
+
+}
+@keyframes test2{
+    0%{
+        transform: rotate(0deg)
+    }
+    50%{
+        transform: rotate(180deg)
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}
+.minute{
+    width: 3px;
+    height: 51px;
+    background: blue;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: 50% 50px;
+    transform: rotate(30deg);
+    animation-name: test1;
+    animation-timing-function: linear;
+    animation-duration: 3600s;
+    animation-iteration-count: infinite
+}
+@keyframes test1{
+    0%{
+        transform: rotate(0deg)
+    }
+    50%{
+        transform: rotate(180deg)
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}
+.second{
+    width: 3px;
+    height: 80px;
+    background: green;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: 50% 80px;
+    transform: rotate(90deg);
+    animation-name: test;
+    animation-timing-function: linear;
+    animation-duration: 60s;
+    animation-iteration-count: infinite
+}
+@keyframes test{
+    0%{
+        transform: rotate(0deg)
+    }
+    50%{
+        transform: rotate(180deg)
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}
+</style>
+<body>
+<div class="div1">
+    <div class="div2">
+        <div class="div3"></div>
+        <div class="div4"></div>
+        <div class="div5"></div>
+        <div class="div6"></div>
+        <div class="div7"></div>
+        <div class="div8"></div>
+        <div class="div9"></div>
+        <div class="div10"></div>
+        <div class="div11"></div>
+        <div class="div12"></div>
+        <div class="div13"></div>
+        <div class="div14"></div>
+        <div class="div15"></div>
+        <div class="small"></div>
+        <div class="small1"></div>
+        <div class="small2"></div>
+        <div class="small3"></div>
+        <div class="small4"></div>
+        <div class="small5"></div>
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+</div>    
+</body>
+</html>

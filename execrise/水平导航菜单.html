@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>水平导航菜单</title>
+    <style>
+    *{
+     margin: 0;
+    padding: 0;
+    }
+    li{
+        list-style: none;
+      }
+      #list .item{
+          width: 100px;
+          height: 30px;
+          margin-right: 5px;
+          text-align: center;
+          line-height: 30px;
+          background: #ff0000;
+          float: left;
+          /* cursor: pointer; */
+      }
+      #list .item >a{
+          color: #ffffff;
+          text-decoration: none;
+          widows: 100px;
+          height: 30px;
+          display: block;
+      }
+      #list .item:hover{
+          background: #00ff00;
+      }
+      #list{
+          width: 420px;
+          height: 30px;
+      }
+      #list .submenu >li{
+         
+          background: #0000ff;
+         
+      }
+      #list .submenu >li:hover{
+         
+         background: #0ff0ff;
+         cursor: pointer;
+        
+        
+     }
+     #list .submenu{
+         display: none;
+     }
+     #list .item:hover > .submenu{
+         display: block;
+     }
+     
+    
+    
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li class="item"><a href="http://www.baidu.com" target="_blank">Link One</a> </li>
+        <li class="item"><a href="">Link Two</a> </li>
+        <li class="item">
+            <a href="">Link Three</a>
+        <ul class="submenu">
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+            <li>004</li>
+        </ul>
+        </li>
+        <li class="item"><a href="">Link Four</a> </li>
+    </ul>
+    <h1>标题</h1>
+</body>
+</html>

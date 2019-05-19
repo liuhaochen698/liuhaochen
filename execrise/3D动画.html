@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        perspective: 1000px;
+    }
+.div1{
+    width: 200px;
+    height: 200px;
+    border: 1px dashed black;
+    background: red;
+    transition: all 1s ease;
+    transform-style: preserve-3d;
+    position: relative;
+   
+    
+}
+.div2{
+    width: 200px;
+    height: 200px;
+    background: blue;
+    transition: all 1s ease;
+    transform: translateZ(-1px) rotateY(180deg);
+   
+}
+.div1:hover{
+      transform: rotateY(180deg);     
+    }
+.span1{
+    display: inline-block;
+    position: absolute;
+}
+.span2{
+    display: inline-block;
+    position: absolute;
+
+}
+</style>
+<body>
+    <div class="div1"><span class="span1"> 微创网讯</span>
+        <div class="div2"><span class="span2"> 微创网讯 </span></div>
+    </div>
+</body>
+</html>

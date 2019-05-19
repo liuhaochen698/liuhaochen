@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>电影菜单</title>
+    <style>
+
+    .img{
+        width: 150px;
+        height: 200px;
+        
+    }
+    .list .img
+    {
+        float: left;
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+
+    }
+    .list .item
+    {
+        float: left;
+    
+       
+    }
+    .list::after
+    {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .list .item .info >span
+    {
+        color: chartreuse;
+    }
+    .list .item .title
+    {
+        font-size: 20px;
+    }
+    .list
+    {
+        bottom: 10px;
+        border-bottom: 1px solid #000000;
+        position: relative;
+    }
+
+    .list .btn
+    {
+        background:#ff0000;
+        color: aliceblue;
+        position: absolute;
+        top: 75px;
+        right: 50px;
+        padding: 5px 10px;
+
+    } 
+    
+
+    </style>
+</head>
+<body>
+    <div class="list">
+     <img class="img" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2058173803,1521143650&fm=11&gp=0.jpg" alt="图片加载失败">
+    <div class="item">
+    <p class="title">人间喜剧</p>
+    <p class="info"><span> 上映时间:2019-03-14</span></p>
+    <p class="info">主演:艾伦 王智</p>
+    </div>
+    <input class="btn" type="button" value="购票">
+    </div>
+    <div class="list">
+    <img class="img" src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=d9358c425f0fd9f9a017526f1d16b317/d31b0ef41bd5ad6eef09c7d48fcb39dbb6fd3c1f.jpg" alt="图片加载失败">
+    <div class="item">
+    <p class="title">小飞象</p>
+    <p class="info"><span> 上映时间:2019-03-14</span></p>
+    <p class="info">主演:艾伦 王智</p>
+    </div>
+    <input class="btn" type="button" value="购票">
+    </div>
+</body>
+</html>
+<!-- 
+span 行级元素 一行展示 行级元素不能控制宽和高 外边距上下不好使 ，左右好使
+div 块级元素 每一个单独占一行 
+标签选择器
+id选择器是唯一的
+
+
+ -->

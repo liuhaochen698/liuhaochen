@@ -1,0 +1,112 @@
+<!-- //文档声明类型 -->
+<!DOCTYPE html> 
+<!-- //根标签 -->
+<html lang="en">
+<!-- //子标签，配置 -->
+<head>
+<!-- //当前页面编码格式，对中文兼容比较好。 -->
+    <meta charset="UTF-8">
+<!-- //移动端兼容，适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 选择器 -->
+    <style>
+      .img1{
+          width: 100px;
+      }
+      .img2{
+          width: 100px;
+      }    
+    /* img{  
+    width: 100px
+    } */
+    .list-item img{
+        float: left;
+        margin-right: 10px
+
+    }
+    .list-item .li-info{
+        float: left;
+    }
+    .list-item::after{
+        content: "";
+        display:block;
+        clear: both;
+    
+
+
+    }
+    .list-item{
+        padding: 10px 0 ;
+        border-bottom: 1px solid #333333
+    }
+    .list-item .title{
+        font-size: 25px;
+    }
+    .list-item .info{
+     font-size: 15px;
+     margin: 5px 0;
+
+    }
+    .list-item .info span{
+
+    color: #faaf00;
+    }
+    .list-item{
+        position: relative;
+    }
+    .list-item .btn{
+   background-color:#e54847;
+   color: #fff;
+   padding: 5px,10px;
+   position: absolute;
+   right: 50px;
+   top: 75px;
+
+
+    }
+    </style>
+</head>
+<body>
+    <!-- 行级元素 默认在一行内展示 如果父级容器不足以容纳他们展示则会换行 -->
+    <!-- <span>css</span>
+    <span>html</span>
+    <span>js</span> -->
+    <!-- 这是一个列表 -->
+    <!-- 标签可以嵌套，行级元素不要嵌套块级元素 -->
+    <!-- div块级元素列优先，默认每个元素占一行 -->
+    
+
+ <div class="list-item">
+     <img class='img1' src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551693460.jpg" >
+     <div class="li-info">
+         <p class="title">人间喜剧</p>
+         <p class="info"><span>上映时间:2019-03-14</span></p>
+         <p class="info">主演：艾伦 王智</p>
+    </div>
+         <input class="btn" type="button" value="购票">
+     
+    </div>
+    <div class="list-item">
+     <img class='img2' src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2549234765.jpg" >
+     <div class="li-info">
+         <p class="title">飞驰人生</p>
+         <p class="info">上映时间:2019-03-16</p>
+         <p class="info">主演：沈腾</p>
+     </div>
+    
+            <input class="btn" type="button" value="购票">
+       
+    </div>
+
+
+  <!-- <ul>
+    <li>第一节课</li>
+    <li>第二节课</li>
+    <li>第三节课</li>
+    <li>第四节课</li>
+    <li>第五节课</li> -->
+  </ul>
+</body>
+</html>

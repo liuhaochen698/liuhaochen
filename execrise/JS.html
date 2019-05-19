@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul id="list-content">
+          <!-- <li>0001</li>   
+          <li>0002</li>
+          <li>0003</li>
+          <li>0004</li>  -->
+        </ul>
+    </div>
+    <!-- JS -->
+    <script>
+    alert("hello")
+    var arr = [1, 2, 3, 4, 5, 6];/*数组的定义*/
+    var str ="";
+    // var str = "<li>0001</li>"+
+    //             "<li>0002</li>"+
+    //            "<li>0003</li>"+
+    //            "<li>0004</li> "
+      
+     for(var i=0;i<arr.length;i++) //方法
+     {
+         str =str+("<li>"+arr[i]+"</li>");
+         console.log(arr[i]);
+     }          
+    // var test1= 123;
+    // var test2= "abc";
+    // console.log(test1+test2+"d")
+    // var oul= document.getElementById("list-content");
+        var oul= document.getElementById("list-content");
+        console.log(oul);
+        oul.innerHTML =str;
+
+    var person ={
+        name: "xiaoming"
+    }
+    person .name= "xiaoli"
+    console.log(person.name);
+
+    </script>
+</body>
+</html>
