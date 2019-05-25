@@ -622,3 +622,20 @@
     color: #ff6700;
     cursor: pointer;
 }
+/*第五行样式*/
+.is-picture{
+    width: 1226px;
+    height: 120px;
+    position: relative;
+    margin: 210px auto;
+}
+.list-picture{
+    width: 1226px;
+    height: 120px;
+    position: absolute;
+}
+.list-picture img{
+    width: 1226px;
+    height: 120px;
+    cursor: pointer;
+}
