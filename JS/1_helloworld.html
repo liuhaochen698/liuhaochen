@@ -8,12 +8,19 @@
 </head>
 <body>
     <script>
-    // document.write("<h2>hello,JavaScriptWorld!</h2>")
-   var a=1;
-   console.log(typeof a);
-   if(typeof a=="number"){
-    console.log("这是一个数值型")
-   }
+        var num =8;
+        switch(num){
+            case 1:console.log("这是1");break;
+            case 2:console.log("这是2");break;
+            case 3:console.log("这是3");break;
+            case 4:console.log("这是4");break;//没有break跳出swtich
+            case 5:console.log("这是5");break;
+            case 6:console.log("这是6");
+            default:console.log("没有数字");
+        }
+        if(1==1){
+            console.log("ok");
+        }
     </script>
 </body>
 </html>

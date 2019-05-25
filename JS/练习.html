@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str =[];
+        var lunch =window.confirm("是否吃午餐？");
+        if(lunch){
+            var num =window.prompt("几个人吃午餐？")
+            for(var i=0;i<num;i++){
+                var people = window.prompt("第"+(i+1)+"个人叫什么");
+                str.push(people)
+            }
+            for(var j=0;j<num;j++){
+            var islunch =chooseLunch();
+           alert(str[j]+"吃"+islunch)
+            }
+        }else{
+            alert("不吃！")
+        }
+        function chooseLunch() {
+            var name="";
+            var random =Math.random();
+            random *=10;
+            random= Math.floor(random);
+            switch(random){
+            case 0:name="茄子";break;
+            case 1:name="土豆";break;
+            case 2:name="苹果";break;
+            case 3:name="辣椒";break;
+            case 4:name="柿子";break;
+            case 5:name="香蕉";break;
+            case 6:name="梨";break;
+            case 7:name="菠萝";break;
+            case 8:name="柚子";break;
+            case 9:name="榴莲";break;
+            default:name="不吃了！！"
+            }
+            return name;
+        }
+    </script>
+</body>
+</html>
