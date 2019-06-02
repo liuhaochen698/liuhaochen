@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.编写程序，根据用户输入的数值，计算其平方、平方根和自然对数。
+    // var x=window.prompt();
+    // console.log(Math.pow(x,2));
+    // console.log(Math.sqrt(x));
+    // console.log(Math.log(x));
+//2.使用Math对象的random()方法编制一个产生0~100之间（含0,100）的随机整数的函数。
+    // var x =Math.random()
+    // x=Math.floor(x*101);
+    // console.log(x);
+//3.设计一个页面，在页面上显示信息“现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！“。
+    // var timer =new Date();
+    // var year =timer.getFullYear();
+    // var month =timer.getMonth()+1;
+    // var day =timer.getDate();
+    // var week =timer.getDay()==0?'日':timer.getDay();
+    // var hour =timer.getHours();
+    // var min =timer.getMinutes();
+    // var sec =timer.getSeconds();
+    // console.log(timer)
+//4.编制一个从字符串中收集数字字符（"0"',"1"，…"9"）的函数CollectDigits(s)，它从字符串s中顺序取出数字，并且合并为一个独立的字符串作为函数的返回值。例如函数调用CollectDigits("1abc23def4"）的返回值是字符串"1234"。
+    // function CollectDigits(s){
+    //     var str ="";
+    //     for(var i=0;i<s.length;i++){
+    //         if('0'<=s[i]&&s[i]<="9"){
+    //             str+=str[i]
+    //         }
+    //     }
+    //     return str;
+    // }
+    // console.log(CollectDigits("1abc23def4"));
+    //5.
+        function Merge(s1,s2){
+            var str="";
+            var  min=s1.length>s2.length?s2:s1;
+            for(var i=0;i<min.length;i++){
+                str+=s1[i]+s2[i];
+            }
+            console.log(str)
+        }
+        Merge("123","abc")
+    </script>
+</body>
+</html>

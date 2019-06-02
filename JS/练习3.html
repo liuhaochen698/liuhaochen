@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//1. 编写一个函数 f(x) = 4x2+3x+2，使用户通过提示对话框输入x的值，能得到相应的计算结果。
+        //  var x= window.prompt("请输入x的值");
+        // var y=4*x*x+3*x+2;
+        // console.log(y);
+
+        // var x=window.prompt("请输入x的值");
+        // function foo(){
+        // var y = 4*x*x+3*x+2;
+        // console.log(y);
+        // }
+        // foo();
+
+        // function foo(x){
+        //     var sum=0;
+        //     sum =(4*x*x)+(3*x)+(2);
+        //     return sum;
+        // }
+        // console.log(foo(2))
+//2.编写一个函数Min(x,y)求出x,y这两个数中的最小值，要求x,y的值由用户通过提示对话框输入。
+        // var a =window.prompt("请输入a");
+        // var b =window.prompt("请输入b");
+        // function Min(x,y){
+        //     var min =x<y?x:y;
+        //     console.log(min);
+        // }
+        // Min(a,b);
+
+        // var x =window.prompt("x的值为：");
+        // var y =window.prompt("y的值为：");
+        // console.log(x,y);
+        // function Min(x,y){
+        //     if(x<y){
+        //         console.log(x);
+        //     }else{
+        //         console.log(y);
+        //     }
+
+        // }
+        // Min(x,y);
+
+        // function foo(){
+        // for(var i=1;i<=1000;i++){
+        //     if(i%3==0&&i%5==0&&i%7==0){
+        //         console.log(i);
+
+        //     }
+        // }    
+        // }
+        // foo();
+//3.编写一个判断某个非负整数是否能够同时被3,5,7整除的函数，然后在页面上输出1~1000之间所有能同时被3,5,7整除的整数，并要求每行显示6个这样的数。
+        // function foo(x){
+        //     if(x%3==0 && x%5==0 && x%7==0){
+        //         return true;
+
+        //     }else{
+        //         return false;
+        //     }
+        // }
+        // var key =0;
+        // for(var i=1;i<1000;i++){
+        //     if(foo(i)){
+        //         ++key;
+        //         document.write(i+"&nbsp;");
+        //         if(key%6==0){
+        //             document.write("<br/>")
+        //         }
+        //     }
+
+        // }
+//4.在页面上编程输出100~1000之间的所有素数，并要求每行显示6个素数。
+        // function foo(x){
+        //     var key =false;
+        //     for(var i=2;i<x;i++){
+        //         if(x%i==0){
+        //            key= false;
+        //            break;
+        //         }else{
+        //         key= true;
+        //         }
+        //     }
+         
+        //     return key;
+        // }
+        // var arr=[];
+        // for(var i=100;i<1000;i++){
+        //     if(foo(i)){
+        //         arr.push(i);
+        //     }
+        // }
+        // for(var j=0;j<arr.length;j++){
+        //     document.write(arr[j]+"&nbsp;");
+        //     if((j+1)%6==0){
+        //         document.write("<br/>")
+        //     }
+        // }
+//5.编写一个非递归函数factorial(n)，计算12!-10!的结果。
+    // function factorial(n){
+    //     var key=1;
+    //     if(n == 1){
+    //         return 1;
+    //     }
+    //     for(var i=1;i<=n;i++){
+    //         key*=i;
+    //     }
+    //     return key;
+    // }
+    // console.log(factorial(12)-factorial(10))
+    
+//6.编写一个带一个参数（指定显示多少层星号“*”的函数，它在页面止输出的一个5层星号“*”图案类似。
+
+    // function foo(key) {
+    //         for (var i = 1; i <= key; i++) {
+    //             for (var k = 0; k < key - i; k++) {
+    //                 document.write("&nbsp;")
+    //             }
+    //             for (var j = 0; j < i; j++) {
+    //                 document.write("*&nbsp;")
+    //             }
+    //             document.write("<br/>")
+    //         }
+    //     }
+    //     foo(20);
+//7.斐波纳契（Fibonacci）数列的第一项是1，第二项是1，以后各项都是前两项的和。试用递归函数和非递归函数各编写一个程序，求斐波纳契数列第N项的值。
+    // function Fibonacci(n){
+    //     if(n<=2){
+    //         return 1;
+    //     }
+    //     var a=1;
+    //     var b=1;
+    //     var temp=0;
+        //a = n-2 项 b = n-1 项
+    //     for(var i=3;i<=n;i++){
+    //         temp=a+b;
+    //         a=b;
+    //         b=temp;
+           
+    //     }
+    //     return temp;
+    // }
+    // console.log(Fibonacci(4))
+    //递归
+    // function Fibonacci(n){
+    //     if(n<=2){
+    //         return 1;
+    //     }
+    //     return Fibonacci(n-1) +Fibonacci(n-2);
+    // }
+    // console.log(Fibonacci(5))
+//8.编写函数，用下面的公式计算π的近似值。
+//     function foo(n){
+//     var sum =0;
+//     var key =-1;
+//     for(var i=1;i<=n;i++){
+//         if((i-1)%2==0){
+//         key=1;
+//     }
+//         sum +=key*(1/(2*i-1));
+//         key =-1;
+//     }
+  
+//   return sum*4;
+//     }
+//     console.log(foo(100))
+//     console.log(foo(500))
+//     console.log(foo(1000))
+//     console.log(foo(5000))
+//9.利用全局变量和函数，设计模拟幸运数字机游戏。设幸运数字为8，每次由计算机随机产生3个1-9之间(包括1和9）的随机数，当这3个随机数中有一个数字为8时，就算赢了一次，要求利用函数计算获胜率。
+    // function foo() {
+    //         var win = false;
+    //         for (var i = 0; i < 3; i++) {
+    //             var a = Math.random();
+    //             a = Math.floor(a * 9) + 1;
+    //             console.log(a);
+    //             if (a == 8) {
+    //                 win = true;
+    //                 break;
+    //             }
+    //         }
+    //         return win;
+
+    //     }
+    //     var count = 0;
+    //     while (true) {
+    //         count++;
+    //         if (foo()) {
+    //             break;
+    //         }
+
+    //     }
+    //     console.log(count);
+
+
+    </script>
+</body>
+</html>
