@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+#container{
+    width: 500px;
+    height: 300px;
+    margin: 100px auto;
+    border: 1px solid #000;
+    position: relative;
+    overflow: hidden;
+}
+#container ul{
+    width: 550px;
+    position: absolute;
+    left: 0;
+}
+
+#container ul li{
+    width: 100px;
+    height: 100px;
+    float: left;
+    background: #000;
+    color: white;
+    margin: 100px 10px 100px 0;
+    text-align: center;
+    line-height: 100px;
+
+}
+#container div{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%)
+}
+#container div span{
+    background: gray;
+    padding: 10px;
+}
+/* #btn1{
+    margin: 0 auto;
+} */
+</style>
+<body>
+    <div id="container">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div>
+            <span id="left">向左</span>
+            <span id="right">向右</span>
+        </div>
+    </div>
+    <script>
+    var aUl = document.getElementsByTagName("ul");
+    var oLeft = document.getElementById("left");
+    var oright = document.getElementById("right");
+    var aLi = aUl[0].getElementsByTagName("li");
+    var speed = 2;
+    aUl[0].innerHTML += aUl[0].innerHTML;
+    aUl[0].style.width = aUl[0].offsetWidth * 2 +"px" ;
+    setInterval(function(){
+        var ileft = getComputedStyle(aUl[0],false).left;
+        aUl[0].style.left = parseInt(ileft) + speed +"px";
+        if(parseInt(ileft) > 0){
+            aUl[0].style.left = -aUl[0].offsetWidth/2 +"px"
+        }
+        if(parseInt(ileft) < -aUl[0].offsetWidth/2){
+            aUl[0].style.left = 0;
+        }
+    },16)
+    oLeft.onmouseover = function(){
+        speed = -2;
+    }
+    oright.onmouseover = function () {
+        speed = +2;
+    }
+    </script>
+</body>
+</html>

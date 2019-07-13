@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+body{
+    background: #000;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+#container{
+    width: 520px;
+    height: 280px;
+    margin: 0 auto;
+    position: relative;
+    border: 5px solid white;
+    overflow: hidden;
+
+}
+#container ul{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 99999;
+}
+#container ul li,.arrows span{
+    float: left;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    background: #ff6700;
+    opacity: 0.5;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    cursor: pointer;
+    
+}
+.arrows{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    z-index: 99999;
+}
+#container .nav-img{
+    width: 2600px;
+    position: absolute;
+
+}
+#container .nav-img img{
+    /* position: absolute;
+    display: none; */
+    float: left;
+
+}
+/* .nav-img img.selected{
+    display: block;
+} */
+#container ul .selected{
+  background: red;
+  opacity: 1;
+}
+
+
+</style>
+<body>
+    <div id="container">
+        <div class="nav-img" id="img-contain">
+            <img class="selected" src="https://img.alicdn.com/tps/i4/TB1N01ncRGw3KVjSZFwSuvQ2FXa.jpg_q90_.webp" alt="">
+            <img src="https://img.alicdn.com/simba/img/TB1CSKlcUKF3KVjSZFESutExFXa.jpg" alt="">
+            <img src="https://aecpm.alicdn.com/tps/i1/TB1r4h8JXXXXXXoXXXXvKyzTVXX-520-280.jpg" alt="">
+            <img src="https://aecpm.alicdn.com/tps/i2/TB10vPXKpXXXXacXXXXvKyzTVXX-520-280.jpg" alt="">
+            <img src="https://img.alicdn.com/tfs/TB1WYMlcliE3KVjSZFMXXbQhVXa-520-280.jpg_q90_.webp" alt="">
+        </div>
+        <ul id="img-ul">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div class="arrows">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+    <script>
+      var oContainer = document.getElementById("container");
+      var imgCon = document.getElementById("img-contain")
+      var oImg = document.getElementsByTagName("img");
+      var imgUl = document.getElementsByTagName("img-ul")
+      var aLi =document.getElementsByTagName("li");
+      var oPrev =document.getElementById("prev");
+      var oNext =document.getElementById("next");
+      var nowIndex =0;
+      var timer = null;
+      var dir = 1;
+      var isRun = true;
+      var timer2 = null;
+      var firstImg = imgCon.firstElementChild;
+      console.log(firstImg);
+      
+      var newFirstImg  = firstImg.cloneNode(true);
+      imgCon.appendChild(newFirstImg);
+      imgCon.style.width = imgCon.offsetWidth + 520 +"px"
+      console.log(imgCon.innerHTML)
+      for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onmouseover = function () {
+               change(this.index);
+            }
+        }
+        oNext.onclick = function () {
+            change(nowIndex+1)
+        }
+        oPrev.onclick = function () {
+            change(nowIndex-1)
+
+        }
+        
+        function change(index){
+            if(isRun){
+                isRun = false;
+               if(index ==-1){
+                   nowIndex = 5;
+                   index = 4;
+                   imgCon.style.left = -imgCon.offsetWidth + 520 +"px"
+
+               }
+               if(index==5){
+                   nowIndex = 0;
+               }
+            if(nowIndex < index){
+                dir = 1;
+            }else{
+                dir = -1;
+            }
+            nowIndex = index;
+            if(index==5){
+                nowIndex=0;
+            }
+            for (j = 0; j < aLi.length; j++) {
+                aLi[j].className = ''
+                // oImg[j].className = ''
+            }
+            aLi[nowIndex].className = 'selected';
+            // oImg[index].className = 'selected';
+             timer = setInterval(function(){
+                 if(imgCon.offsetLeft == -520 * index){
+                     clearInterval(timer);
+                     if(index==5){
+                        imgCon.style.left=0;
+                     }
+                     isRun = true;
+                 }else{
+                    imgCon.style.left = imgCon.offsetLeft - 10*dir +"px"
+                 }
+                 
+                 
+                
+           
+            console.log(-oImg[0].offsetWidth * index)
+            },16.7)
+         
+            }
+        }
+        function run(){
+            timer2 = setInterval(function(){
+            change(nowIndex+1)
+        },3000)
+        }
+        oContainer.onmouseout = function(){
+            run();                                                  
+
+        }
+        oContainer.onmouseover =function(){
+            clearInterval(timer2)
+        }
+        
+       
+    
+    </script>
+</body>
+</html>

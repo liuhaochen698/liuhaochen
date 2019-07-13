@@ -35,7 +35,7 @@ li{
 
     <script>
         var oBox =document.getElementById("box");
-        window.oncontextmenu=function(e){
+        document.oncontextmenu=function(e){
         e.preventDefault();
         var oBox =document.getElementById("box");
         oBox.style.left =e.clientX+"px";
@@ -43,7 +43,7 @@ li{
         oBox.style.width =300+"px";
         oBox.style.display ="block";
     }
-    window.onclick =function(e){
+        document.onclick =function(e){
         oBox.style.display ="none";
     }
  

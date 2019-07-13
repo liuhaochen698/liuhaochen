@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #tap{
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<body>
+    <ul id="tap">
+        <li class="tap1">淘宝</li>
+        <li class="tap2">百度</li>
+        <li class="tap3">京东</li>
+    </ul>
+    <script>
+    var oTap = document.getElementById("tap");
+    var oTap1 =document.getElementsByClassName("tap1")[0]
+    var oTap2 =document.getElementsByClassName("tap2")[0]
+    var oTap3 =document.getElementsByClassName("tap3")[0]
+    oTap1.onclick =function(){
+        location.replace("http:www.taobao.com")
+    }
+    oTap2.onclick =function(){
+        location.replace("http:www.baidu.com")
+    }
+    oTap3.onclick =function(){
+        location.replace("http:www.tmall.com")
+    }
+    </script>
+</body>
+</html>

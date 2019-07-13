@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.item{
+    margin: 100px auto;
+    width: 200px;
+    height: 150px;
+    background:white;
+    border: 1px solid black;
+    display: none;
+    padding: 0 10px;
+
+}
+.container span{
+    float: right;
+}
+</style>
+<body>
+    <div class="container">
+        <button id="btn">登陆</button>
+        <button id="nav">注册</button>
+        <div class="item">
+            <span id="close">X</span>
+        登陆</div>
+        
+    </div>
+    <script>
+    var oClose = document.getElementById("close");
+    var aItem = document.getElementsByClassName("item")[0];
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function (){
+        aItem.style.display = 'block'
+    }
+    oClose.onclick = function () {
+        aItem.style.display = "none"
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+#box{
+    width: 200px;
+    height: 200px;
+    background: rebeccapurple;
+    position: absolute;
+}
+
+</style>
+<body>
+    <div id="box">
+        
+    </div>
+    <script>
+    var oBox =document.getElementById("box");
+    oBox.onmousedown =function (e) {
+        var ileft = e.clientX - this.offsetLeft;
+        var itop = e.clientY - this.offsetTop;
+        document.onmousemove = function (e) {
+         var divLeft = e.clientX - ileft;
+         var divTop = e.clientY - itop;
+         if(divLeft > document.documentElement.offsetWidth - oBox.offsetWidth ){
+        divLeft = document.documentElement.offsetWidth - oBox.offsetWidth 
+        }
+        else if(divLeft < 0){
+        divLeft =0;        
+        }
+        if (divTop > window.innerHeight -oBox.offsetHeight){
+            divTop = window.innerHeight -oBox.offsetHeight
+        }
+        else if(divTop < 0){
+            divTop =0
+
+        }
+         oBox.style.left = divLeft +'px';
+         oBox.style.top =divTop +'px';
+    } 
+  
+
+    oBox.onmouseup = function(){
+        document.onmousemove = null;
+    }     
+    }
+   
+    
+    </script>
+</body>
+</html>

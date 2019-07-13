@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    li{
+        list-style: none;
+    }
+.div1{
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    background: #ffffff;
+    border: 1px dashed #000000;
+}
+.div2{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #ffffff;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    position: relative;
+    
+}
+li{
+    position: absolute;
+    width: 1px;
+    height: 5px;
+    background: #000;
+    left: 50%;
+    top: 0;
+    transform-origin:0 100px
+}
+
+.hour{
+    width: 3px;
+    height: 20px;
+    background: red;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: 50% 18px;
+
+}
+
+.minute{
+    width: 3px;
+    height: 51px;
+    background: blue;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: 50% 50px;
+
+ 
+}
+
+.second{
+    width: 3px;
+    height: 80px;
+    background: green;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform-origin: 50% 80px;
+
+
+}
+.div2 ul li:nth-child(5n+1){
+      height: 10px;
+}
+</style>
+<body>
+<div class="div1">
+    <div class="div2">
+        <ul class="clock">
+
+        </ul>
+        <!-- <div class="div3"></div> -->
+        
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+</div> 
+<script>
+        var oSecond = document.getElementsByClassName("second")[0];
+        var oMinute = document.getElementsByClassName("minute")[0];
+        var oHour = document.getElementsByClassName("hour")[0];
+        var oClock = document.getElementsByClassName("clock")[0];
+        var clockHtml = ""
+        for(var i =0;i < 60;i++){
+            clockHtml += "<li style='transform:rotate("+ i*6 +"deg)'></li>"
+        }
+        oClock.innerHTML =clockHtml;
+        // function run(){
+        //     var timer = new Date();
+        //     var hour = timer.getHours()+minute/60;
+        //     var minute = timer.getMinutes();
+        //     var second = timer.getSeconds();
+        //     oHour.style.transform = "rotate("+ (hour*30) +"deg)";
+        //     oMinute.style.transform = "rotate("+ (minute*6) +"deg)";
+        //     oSecond.style.transform = "rotate("+ (second*6) +"deg)";
+        // }
+        // run();
+        // setInterval(function(){
+        //     run();
+        // },1000)
+        function Time(hour,min,sec){
+            this.hour = hour;
+            this.min =min;
+            this.sec = sec;
+            
+        }
+        Time.prototype = {
+                setHourT: function () {
+                    return this.hour * 30 + 0.5 * this.min + 0.5 / 60 * this.sec;
+                },
+                setMinT: function () {
+                    return this.min * 6 + 0.1 * this.sec;
+                },
+                setSecT: function () {
+                    return this.sec * 6;
+                }
+            }
+        
+        var timer = setInterval(function(){
+            var nowTime = new Date();
+            h = nowTime.getHours();
+            m = nowTime.getMinutes();
+            s = nowTime.getSeconds();
+            var time = new Time(h, m, s);
+            oSecond.style.transform = "rotate(" + time.setSecT() + "deg)";
+            oMinute.style.transform = "rotate(" + time.setMinT() + "deg)";
+            oHour.style.transform = "rotate(" + time.setHourT() + "deg)";
+        },1000)
+        function timer() {
+                    clearInterval(timer);
+                }
+        </script>   
+</body>
+</html>
+  

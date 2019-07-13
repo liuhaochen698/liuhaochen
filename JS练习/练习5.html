@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.box{
+    width: 200px;
+    height: 50px;
+    background: rebeccapurple;
+    margin: 10px;
+    cursor: cell;
+}
+</style>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+<script>
+    var oBox = document.getElementsByClassName("box");
+    for(var i =0 ; i<oBox.length; i++){
+        
+        oBox[i].timer = null;
+        oBox[i].timer2 = null;
+        oBox[i].onmouseover = function () {
+            var _this = this;
+           clearInterval(_this.timer2);
+            _this.timer=  setInterval(function(){
+                if(_this.offsetWidth >= 400){
+                clearInterval(_this.timer);
+               
+            }else{
+                _this.style.width = _this.offsetWidth + 10 +'px';
+            }
+          
+            },16)
+           
+        }
+        oBox[i].onmouseout = function () {
+            var _this =this;
+            clearInterval(_this.timer)
+            _this.timer2 = setInterval(function(){
+                if(_this.offsetWidth <= 200){
+                    clearInterval(_this.timer2)
+                }else{
+                    _this.style.width = _this.offsetWidth - 10 +'px';
+                }
+                
+            },16)
+        }
+    }
+</script>
+</html>

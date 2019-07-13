@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+#container{
+    width: 520px;
+    height: 280px;
+    margin: 100px auto;
+    position: relative;
+}
+#container .imgs img{
+    position: absolute;
+}
+#container .imgs img.selected{
+    display: block;
+}
+#container .nav{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 99999;
+}
+
+#container .nav li,.arrows span{
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: gray;
+    color: white;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    
+}
+#container .arrows{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    z-index: 99999;
+
+}
+#container .nav .selected{
+    background: orange;
+}
+</style>
+<body>
+    <div id="container">
+        <div class="imgs">
+            <img class="selected" src="https://img.alicdn.com/tps/i4/TB1wnPvbLWG3KVjSZFPSutaiXXa.jpg_q90_.webp" alt="">
+            <img src="https://aecpm.alicdn.com/simba/img/TB1XotJXQfb_uJkSnhJSuvdDVXa.jpg" alt="">
+            <img src="https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg" alt="">
+            <img src="https://img.alicdn.com/tps/i4/TB1AwribQ9E3KVjSZFGSuw19XXa.jpg_q90_.webp" alt="">
+         
+        </div>
+        <ul class="nav">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div class="arrows"> 
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+        </div>
+    </div>
+    <script src="chajian.js"></script>
+    <script>
+    var oContainer =document.getElementById("container");
+    var aLi =document.getElementsByTagName("li");
+    var aImg =document.getElementsByTagName("img");
+    var oPrev =document.getElementById("prev");
+    var oNext =document.getElementById("next");
+    var nowIndex =0;
+    var zIndex =4;
+    for(var i=0;i<aImg.length;i++){
+        aImg[i].style.zIndex =aImg.length-i;
+
+    }
+   for(var i=0;i<aLi.length;i++){
+       aLi[i].index =i;
+       aLi[i].onmouseover =function(){
+           nowIndex =this.index;
+          changeImg(this.index)
+       }
+   }
+   oNext.onclick = function () {
+        nowIndex++;
+        if(nowIndex ==aLi.length){
+            nowIndex =0;
+        }
+       changeImg(nowIndex);
+    }
+    oPrev.onclick =function(){
+        nowIndex--;
+        if(nowIndex==-1){
+            nowIndex=aLi.length-1;
+        }
+        changeImg(nowIndex);
+    }
+    function changeImg(index){
+        for(var j=0;j<aLi.length;j++){
+            aLi[j].className="";
+            // aImg[j].className="";
+        }
+        aLi[index].className ="selected";
+        aImg[index].style.zIndex =++zIndex;
+        aImg[index].style.opacity =0;
+        animate(aImg[index],{opacity:100});
+        // aImg[index].className = "selected";
+    }
+    oContainer.onmouseover =function(){
+        clearInterval(timer);
+    }
+    oContainer.onmouseout =function(){
+        play();
+    }
+    play();
+    function play(){
+         timer= setInterval(function(){
+        oNext.onclick();
+    },2000)
+    }
+    
+    </script>
+</body>
+</html>

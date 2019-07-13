@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    li{
+      list-style: none;
+    }
+    .clock{
+      width: 202px;
+      height: 202px;
+      border:1px dashed #666;
+      margin: 100px auto;
+      position: relative;
+    }
+    .clock ul{
+      width: 200px;
+      height: 200px;
+      border:1px solid #333;
+      border-radius: 50% 50%;
+      position: relative;
+    }
+    .clock ul li{
+      width: 2px;
+      height: 5px;
+      background-color: #333;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -1px;
+      transform-origin: 50% 100px;
+    }
+    /* .clock ul li:nth-child(2){
+      transform: rotate(6deg);
+    }
+    .clock ul li:nth-child(3){
+      transform: rotate(12deg);
+    }
+    .clock ul li:nth-child(4){
+      transform: rotate(18deg);
+    }
+    .clock ul li:nth-child(5){
+      transform: rotate(24deg);
+    }
+    .clock ul li:nth-child(6){
+      transform: rotate(30deg);
+    } */
+    .clock ul li:nth-child(5n+1){
+      height: 10px;
+    }
+    .clock div{
+      position: absolute;
+      top:100px;
+      left: 50%;
+      transform: translateX(-50%) rotate(180deg);
+      transform-origin: top;
+    }
+    .clock .hour{
+      width: 6px;
+      height: 20px;
+      background-color: red;
+      /* animation: run 216000s linear infinite; */
+    }
+    .clock .minute{
+      width: 4px;
+      height: 30px;
+      background-color:blue;
+      /* animation: run 3600s linear infinite; */
+    }
+    .clock .second{
+      width: 2px;
+      height: 40px;
+      background-color: green;
+      /* animation: run 60s linear infinite; */
+    }
+    @keyframes run{
+      0%{
+        transform:translateX(-50%) rotate(180deg) 
+      }
+      100%{
+        transform:translateX(-50%) rotate(540deg) 
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="clock">
+    <ul id="clock-box">
+      
+    </ul>
+    <div class="hour"></div>
+    <div class="minute"></div>
+    <div class="second"></div>
+  </div>
+  <script>
+    var oClock = document.getElementById("clock-box");
+    var oHour = document.getElementsByClassName("hour")[0];
+    var oSecond = document.getElementsByClassName("second")[0];
+    var oMinute = document.getElementsByClassName("minute")[0];
+    
+    var clockHtml = ""
+    for(var i=0;i<60;i++){
+      clockHtml += "<li style='transform:rotate("+ i*6 +"deg)'></li>"
+    }
+    oClock.innerHTML = clockHtml;
+
+    function run(){
+      var timer = new Date();
+      
+      var minute = timer.getMinutes();
+      var second = timer.getSeconds();
+      var hour = timer.getHours()+minute/60;
+      oHour.style.transform = "translateX(-50%) rotate("+ (hour*30+180) +"deg)"
+      oMinute.style.transform = "translateX(-50%) rotate("+ (minute*6+180) +"deg)"
+      oSecond.style.transform = "translateX(-50%) rotate("+ (second*6+180) +"deg)"
+    }
+    run();
+
+    setInterval(function(){
+      run();
+    },1000)
+  </script>
+</body>
+</html>

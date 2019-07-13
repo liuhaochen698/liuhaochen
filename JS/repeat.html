@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0;
+}
+.box{
+    width: 500px;
+    border: 1px solid #000000;
+    margin: 100px auto;
+}
+.header{
+    height: 50px;
+    background: #000;
+}
+
+.header ul li{
+    float: left;
+    color: white;
+    list-style: none;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+}
+.header ul .active{
+    background: yellow;
+    color: purple;
+}
+.body ul{
+    display: none
+}
+.body .active{
+    display: block;
+}
+</style>
+<body>
+    <div class="box">
+        <div class="header">
+            <ul>
+                <li class="active">第一节课</li>
+                <li>第二节课</li>
+                <li>第三节课</li>
+            </ul>
+        </div>
+        <div class="body">
+            <ul class="active">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+            </ul>
+            <ul>
+                <li>1</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    var oHeader = document.getElementsByClassName("header")[0];
+    var headerLi = oHeader.getElementsByTagName("li");
+    var oBody =document.getElementsByClassName("body")[0];
+    var bodyUl =oBody.getElementsByTagName("ul");
+    for(var i=0;i<headerLi.length;i++){
+        headerLi[i].index = i;
+        headerLi[i].onmouseover =function(){
+            for(var j=0;j<headerLi.length;j++){
+                headerLi[j].className="";
+                bodyUl[j].className="";
+    }
+        bodyUl[this.index].className="active";
+        this.className ="active";
+
+    }
+      }
+       
+    </script>
+</body>
+</html>

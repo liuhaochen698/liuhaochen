@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    li{
+        list-style: none;
+    }
+    #box{
+        width: 300px;
+        height: 200px;
+        border: 1px solid #000000;
+        margin: 100px auto;
+        position: relative;
+        overflow: hidden;
+    }
+    #box .ul1{
+        width: 440px;
+        position: absolute;
+        left: 0;
+    }
+    #box .ul1 li{
+        float: left;
+        background: #000;
+        color: white;
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 100px;
+        
+    }
+    #div1{
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+    #div1 span{
+        background:gray;
+        padding: 10px;
+    }
+</style>
+<body>
+    <div id ="box">
+        <ul class="ul1">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="div1">
+            <span id="left">向左</span>
+            <span id="right">向右</span>
+        </div>
+    </div>
+    <script>
+    var aUl = document.getElementsByClassName("ul1")[0]; 
+    var oLeft =document.getElementById("left");
+    var oRight =document.getElementById("right");
+    aUl.innerHTML +=aUl.innerHTML;
+    aUl.style.width = aUl.offsetWidth * 2 +'px' 
+    var speed = -2   
+    setInterval(function(){
+        var ileft = getComputedStyle(aUl,false).left;
+        aUl.style.left = parseInt(ileft) +speed +'px';
+        if(parseInt(ileft) < -aUl.offsetWidth/2){
+            aUl.style.left =0
+        }
+        if(parseInt(ileft) > 0){
+            aUl.style.left =-aUl.offsetWidth / 2 +'px' 
+        }
+        console.log(ileft)
+    },10)
+    oLeft.onmouseover =function(){
+        speed =-2;
+    }
+    oRight.onmouseover =function(){
+        speed=2;
+    }
+    </script>
+</body>
+</html>

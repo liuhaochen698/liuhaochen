@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+#small,#big{
+    width: 400px;
+    height: 400px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+#small img{
+    width: 400px;
+    height: 400px;
+}
+#small #nav{
+    width: 200px;
+    height: 200px;
+    background: gray;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    display: none;
+    
+}
+#big{
+    display: none;
+}
+#big img{
+    position: absolute;
+}
+</style>
+<body>
+    <div id="small">
+        <img src="https://img.alicdn.com/tps/TB1HmdHOXXXXXX.XXXXXXXXXXXX-640-640.jpghttps://gw.alicdn.com/tfs/TB1vOhow_tYBeNjy1XdXXXXyVXa-1200-1200.jpg_.webp">
+        <div id="nav">
+
+        </div>
+    </div>
+    <div id="big">
+        <img src="https://img.alicdn.com/tps/TB1HmdHOXXXXXX.XXXXXXXXXXXX-640-640.jpghttps://gw.alicdn.com/tfs/TB1vOhow_tYBeNjy1XdXXXXyVXa-1200-1200.jpg_.webp" width="800px" height="800px">
+    </div>
+    <script>
+    var oSmall = document.getElementById("small");
+    var oNav = document.getElementById("nav");
+    var oBig = document.getElementById("big");
+    var bigImg = oBig.getElementsByTagName("img")[0];
+    oSmall.onmouseover = function () {
+        oNav.style.display = "block";
+        oBig.style.display = "block"
+    oSmall.onmousemove = function (e) {
+        var ileft = e.clientX - oNav.offsetWidth / 2;
+        var itop = e.clientY - oNav.offsetHeight / 2;
+        if(ileft > oSmall.offsetWidth - oNav.offsetWidth){
+            ileft = oSmall.offsetWidth - oNav.offsetWidth
+        }
+        else if(ileft < 0){
+            ileft = 0;
+        }
+        if(itop > oSmall.offsetHeight - oNav.offsetHeight){
+            itop = oSmall.offsetHeight - oNav.offsetHeight
+        }
+        else if(itop < 0){
+            itop = 0;
+        }
+        var mulripleX = ileft / (oSmall.offsetWidth - oNav.offsetWidth);
+        var divX = mulripleX * (bigImg.offsetWidth - oBig.offsetWidth);
+        var mulripleY = itop / (oSmall.offsetHeight - oNav.offsetHeight);
+        var divY = mulripleY * (bigImg.offsetHeight - oBig.offsetHeight);
+
+        bigImg.style.left = -divX +"px";
+        bigImg.style.top = -divY +"px";
+
+        oNav.style.left =  ileft + "px";
+        oNav.style.top =  itop + "px";
+
+    }
+    }
+    oSmall.onmouseout =function () {
+        oNav.style.display = "none";
+        oBig.style.display = "none";
+    }
+    </script>
+</body>
+</html>

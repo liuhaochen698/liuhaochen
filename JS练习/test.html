@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<style>
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    body,
+    ul {
+        margin: 0;
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    /* clock */
+    #clock {
+        display: flex;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        -ms-align-items: center;
+        -moz-align-items: center;
+        align-items: center;
+        width: 300px;
+        height: 300px;
+        margin: 60px auto;
+        border-radius: 50%;
+        box-shadow: 0 0 15px;
+    }
+
+    .hms {
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: #333;
+        border-radius: 50%;
+    }
+
+    .hms div {
+        position: absolute;
+        bottom: 50%;
+        background-color: #333;
+        transform-origin: center bottom;
+    }
+
+    .hms .hour {
+        left: calc(50% - 10px/2);
+        width: 10px;
+        height: 80px;
+    }
+
+    .hms .hour::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 79px;
+        border-width: 14px 5px;
+        border-style: solid;
+        border-color: transparent transparent #333 transparent;
+    }
+
+    .hms .min {
+        left: calc(50% - 8px/2);
+        width: 8px;
+        height: 110px;
+        transform: rotate(15deg);
+    }
+
+    .hms .min::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 109px;
+        border-width: 12px 4px;
+        border-style: solid;
+        border-color: transparent transparent #333 transparent;
+    }
+
+    .hms .sec {
+        left: calc(50% - 6px/2);
+        width: 6px;
+        height: 120px;
+        transform: rotate(30deg);
+    }
+
+    .hms .sec::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 119px;
+        border-width: 10px 3px;
+        border-style: solid;
+        border-color: transparent transparent #333 transparent;
+    }
+</style>
+
+<body>
+    <div id="clock">
+        <div class="hms">
+            <!-- 时针 -->
+            <div class="hour"></div>
+            <!-- 分针 -->
+            <div class="min"></div>
+            <!-- 秒针 -->
+            <div class="sec"></div>
+        </div>
+    </div>
+    <script>
+        (function (document) {
+            // 把document保存为局部变量
+            var doc = document;
+            // 所需元素,timer表示定时器
+            var ele = {
+                eleHour: doc.getElementsByClassName("hour")[0],
+                eleMin: doc.getElementsByClassName("min")[0],
+                eleSec: doc.getElementsByClassName("sec")[0],
+                timer: null
+            };
+            // Time构造函数
+            function Time(hour, min, sec) {
+                this.hour = hour;
+                this.min = min;
+                this.sec = sec;
+            }
+            // 由于对Time原型重写，所以需要指定Time原型的constructor属性指向Time
+            Object.defineProperty(Time.prototype, "constructor", {
+                enumerable: false,
+                value: Time
+            })
+            // Time原型，用于保存下列方法
+            Time.prototype = {
+                // 设置时针转动的度数
+                setHourT: function () {
+                    return this.hour * 30 + 0.5 * this.min + 0.5 / 60 * this.sec;
+                },
+                // 设置分针转动的度数
+                setMinT: function () {
+                    return this.min * 6 + 0.1 * this.sec;
+                },
+                // 设置秒针转动的度数
+                setSecT: function () {
+                    return this.sec * 6;
+                }
+            };
+            // 每隔一秒钟重新获取一次时间
+            ele.timer = setInterval(function () {
+                var nowTime = new Date(),
+                h = nowTime.getHours();
+                m = nowTime.getMinutes();
+                s = nowTime.getSeconds();
+                var time = new Time(h, m, s);
+                ele.eleSec.style.transform = "rotate(" + time.setSecT() + "deg)";
+                ele.eleMin.style.transform = "rotate(" + time.setMinT() + "deg)";
+                ele.eleHour.style.transform = "rotate(" + time.setHourT() + "deg)";
+            }, 1000)
+            // 清除定时器
+            return function () {
+                clearInterval(ele.timer);
+            }
+        })(document);
+
+    </script>
+
+</body>
+
+</html>

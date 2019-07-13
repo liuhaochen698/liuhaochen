@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+
+#container{
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid gray;
+}
+.con-img img{
+    width: 520px;
+    height: 280px;
+    padding: 0 40px;
+}
+.fix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.nav-img{
+    border-top: 1px solid gray;
+}
+.nav-img li{
+    border-right: 1px solid gray;
+    float: left;
+    padding: 0 14px
+}
+.nav-img li:last-child{
+    border-right: none;
+}
+.nav-img img{
+    width: 120px;
+    height: 70px;
+
+}
+</style>
+<body>
+<div id="container">
+    <div class="con-img">
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1852650405,1194638284&fm=27&gp=0.jpg" alt="">
+    </div>
+    <div class="nav-img">
+        <ul class="fix">
+      <li><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1852650405,1194638284&fm=27&gp=0.jpg" alt=""></li>  
+       <li> <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3176314660,868870740&fm=27&gp=0.jpg" alt=""></li>
+       <li> <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2013186074,2288960413&fm=27&gp=0.jpg" alt=""></li>
+       <li><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=502962373,1522425445&fm=27&gp=0.jpg" alt=""></li> 
+    </ul>
+    </div>
+</div>
+<script>
+    var conImg =document.getElementsByClassName("con-img")[0];
+    var aImg =conImg.getElementsByTagName("img")[0];
+    var navImg =document.getElementsByClassName("nav-img")[0];
+    var oImg = navImg.getElementsByTagName("img");
+    for(var i=0;i<oImg.length;i++){
+        oImg[i].index = i;
+        oImg[i].onmouseover =function(){
+      var oSrc =  oImg[this.index].getAttribute("src");
+        aImg.setAttribute("src",oSrc);
+    }
+    }
+   
+</script>
+</body>
+</html>

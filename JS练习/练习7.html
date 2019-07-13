@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //第五题 （快手）
+    var str1 = 123000 
+    //321
+    // var str2 =str1/1000;
+    // var str3 = str2 + 198;
+    // console.log(str3);
+
+    // var str2 = Math.floor(str1/100000)+2;
+    // var str3 = Math.floor(str1/10000)-10;
+    // var str4 = Math.floor(str1/1000)-122;
+    // console.log(str2*100+str3*10+str4);
+
+    var num = str1.toString().split("").reverse().join("");
+    console.log(parseInt(num));
+     //第三题 （快手）
+     var a = [1, 2, 3, 4, 5, 6]//1,2,3,a,4,5,6
+     a.splice(3,0,"a");
+     console.log(a);
+      //第七题（字节跳动）
+     var user=[
+      {id:1,name:'a'},
+      {id:2,name:'b'},
+      {id:3,name:'a'},
+      {id:4,name:'b'}
+    ]
+    function unique (arr){
+        var temp = [];
+        for(var i =0; i<arr.length;i++){
+            if (temp.indexOf(arr[i].name)==-1) {
+
+                temp.push(arr[i].name) 
+            }
+            
+        }
+        console.log(temp)
+    }
+    unique(user)//a b
+
+
+      //第八题（字节跳动）
+      var list = [1,[2,[3,[4,[5],6],7],8],9];
+      var a =list.toLocaleString() 
+      console.log(a) 
+    //输出 1，2，3，4，5，6，7，8，9
+
+    //第九题（字节跳动）* 
+
+
+    function repeat(func, times, time) {
+            var count = 1;
+            var timer;
+            function repeatfunc(f) {
+
+                timer = setInterval(function () {
+                    
+                    if (count > times) {
+                        clearInterval(timer)
+                        return
+                    } else {
+                        func(f)
+                        // repeatfunc(f)
+                        count++;
+                    }
+
+                }, time)
+            }
+            return repeatfunc;
+
+        }
+        const repeatfunc = repeat(console.log, 5, 500);
+        repeatfunc('hello,world');
+    
+    
+    //每隔500毫秒输出一个hello,world 输出5次
+  
+  </script>
+
+</body>
+
+</html>
