@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+</style>
+<body>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <button id="btn">add</button>
+    <select name="" id="sel">
+        <option value="a">aaaaa</option>
+        <option value="b">bbbbb</option>
+    </select>
+    <script>
+    var aUl = document.getElementsByTagName("ul")[0];
+    var oBtn = document.getElementById("btn");
+    var  oLi = aUl.getElementsByTagName("li");
+    aUl.onclick = function(e){
+        if(e.target.nodeName=="LI"){
+            console.log(e.target.innerText);
+            // console.log(e.target);
+            // console.log(e.currentTarget);
+            
+             
+        }
+  
+        
+    }
+     oBtn.onclick = function(){
+        var aLi  = document.createElement("li");
+        var a = aUl.lastElementChild.innerText;
+        aLi.innerText =parseInt(a)+1;
+        aUl.appendChild(aLi)
+
+    }
+    </script>
+</body>
+</html>

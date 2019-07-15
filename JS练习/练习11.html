@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.box{
+    position: relative;
+   
+}
+
+li{
+    list-style: none;
+}    
+#sel1{
+    width: 150px;
+    height: 200px;
+    margin-right: 50px;
+}
+#sel2{
+    width: 150px;
+    height: 200px;
+   
+}
+
+</style>
+<body>
+        <div class="box">
+        <select multiple name="" id="sel1">
+            <option value="a">选项1</option>
+            <option value="b">选项2</option>
+            <option value="c">选项3</option>
+            <option value="d">选项4</option>
+            <option value="e">选项5</option>
+            <option value="f">选项6</option>
+            <option value="g">选项7</option>
+            <option value="h">选项8</option>
+        </select>
+        <div class="box">
+            <button id="btn1">选中添加到右边>></button>
+            <button id="btn2">全部添加到右边>></button>
+        </div>
+      </div>
+       <div class="box">
+        <select multiple name="" id="sel2">
+    
+        </select>
+        <div class="box"> 
+            <button id="btn3">选中删除到左边>></button>
+            <button id="btn4">全部删除到左边>></button>
+        </div>
+    </div>
+    <script>
+    var oSel1 = document.getElementById("sel1");
+    var oSel2 = document.getElementById("sel2");
+    var oBtn1 = document.getElementById("btn1");
+    var oBtn2 = document.getElementById("btn2");
+    var oBtn3 = document.getElementById("btn3");
+    var oBtn4 = document.getElementById("btn4");
+    oSel1.ondblclick = function () {
+        oSel2.options.add(new Option(oSel1.options[oSel1.selectedIndex].innerText,oSel1.selectedIndex.value));
+        oSel1.options.remove(oSel1.selectedIndex);
+     
+    }
+    oSel2.ondblclick = function(){
+        oSel1.options.add(new Option(oSel2.options[oSel2.selectedIndex].innerText,oSel2.selectedIndex.value));
+        oSel2.options.remove(oSel2.selectedIndex);
+    }
+    oBtn1.onclick = function(){
+        var tem = [];
+        for(var i = 0; i<oSel1.options.length;i++){
+            if(oSel1.options[i].selected){
+                tem.push(oSel1.options[i]);
+                console.log(oSel1.options[i]);
+                
+            }
+        }     
+        for(var j = 0 ;j<tem.length;j++){
+            oSel2.appendChild(tem[j])
+        }
+    }
+    oBtn2.onclick = function(){
+        var thisHtml = oSel1.innerHTML;
+        oSel1.options.length= 0;
+        oSel2.innerHTML +=thisHtml;
+        
+    }
+    oBtn3.onclick = function(){
+        var tem =[];
+        for(var i =0;i < oSel2.options.length;i++){
+            if(oSel2.options[i].selected){
+                tem.push(oSel2.options[i])
+            }
+           
+            console.log(oSel2.options[i]);         
+        }
+        for(var j=0;j<tem.length;j++){
+            oSel1.appendChild(tem[j]);
+        }
+
+    }
+    oBtn4.onclick = function(){
+        var thisHtml = oSel2.innerHTML;
+        oSel2.options.length = 0;
+        oSel1.innerHTML = oSel1.innerHTML+thisHtml;
+    }
+    </script>
+</body>
+</html>

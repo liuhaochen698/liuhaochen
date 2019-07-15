@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./JS/jquery-3.4.1.js"></script>
+</head>
+<style>
+span{
+    padding: 10px 0 0 100px;
+}
+thead td{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0 0 100px;
+}
+tr td{
+    padding: 10px 0 0 100px;
+}
+
+</style>
+<body>
+    <span>筛选:</span>
+    <input type="text" id="inp">
+    <table>
+        <thead>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>暂住地</td>
+        </thead>
+  
+        <tr>
+            <td>张山</td>
+            <td>男</td>
+            <td>浙江宁波</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>女</td>
+            <td>浙江杭州</td>
+        </tr>
+        <tr>
+            <td>王五</td>
+            <td>男</td>
+            <td>湖南长沙</td>
+        </tr>
+        <tr>
+            <td>赵六</td>
+            <td>男</td>
+            <td>浙江温州</td>
+        </tr>
+        <tr>
+            <td>Rain</td>
+            <td>男</td>
+            <td>浙江杭州</td>
+        </tr>
+        <tr>
+            <td>MAX</td>
+            <td>女</td>
+            <td>浙江杭州</td>
+        </tr>
+        <tr>
+            <td>王六</td>
+            <td>男</td>
+            <td>浙江杭州</td>
+        </tr>
+        <tr>
+            <td>李字</td>
+            <td>女</td>
+            <td>浙江杭州</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>男</td>
+            <td>湖南长沙</td>
+        </tr>
+    
+    </table>
+    <script>
+    $("#inp").on("keyup",function(){
+        console.log(123);
+        
+       $("tr").css("display","none");
+       $("tr:contains("+$(this).val()+")").css("display","block");
+       if($(this).val()==0){
+         $("tr").css("display","block")
+       }
+      
+    })
+    </script>
+</body>
+</html>

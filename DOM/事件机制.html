@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+#div1{
+    width: 400px;
+    height: 400px;
+    background: red
+}
+#div2{
+    width: 200px;
+    height: 200px;
+    background: rebeccapurple
+}
+#div3{
+    width: 100px;
+    height: 100px;
+    background: blue;
+}
+</style>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+    <script>
+    // var oDiv1 =document.getElementById("div1");
+    // oDiv1.addEventListener("click",function(){
+    //     console.log(123);
+    // console.log('abc')
+    // },false)//多重点击事件
+    // ;
+
+    //事件冒泡
+    var oDiv1 = document.getElementById("div1");
+    var oDiv2 = document.getElementById("div2");  
+    var oDiv3 = document.getElementById("div3");
+    // oDiv1.onclick =function(){
+    //     console.log("div1")
+    // }
+    // oDiv2.onclick =function(){
+    //     console.log("div2")
+    // }  
+    // oDiv3.onclick =function(e){
+    //     e.stopPropagation();//阻止事件冒泡
+    //     console.log("div3")
+    // }  
+
+    //JS事件机制分为冒泡和捕获 冒泡：从内向外 捕获：从外向内 先捕获后冒泡
+    function foo(){
+        console.log("div1");
+        
+    }
+    oDiv1.addEventListener("click",foo, false)//改成true 点击结果变成 div1 div2 div3
+    //多重点击事件 
+    oDiv1.removeEventListener("click",foo,false)
+    oDiv2.addEventListener("click",function(){
+        console.log("div2");
+    },false)//多重点击事件 
+    
+    oDiv3.addEventListener("click",function(){
+        console.log("div3");
+    },false)//多重点击事件
+          
+    </script>
+</body>
+</html>

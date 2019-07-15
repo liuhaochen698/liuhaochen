@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./JS/jquery-3.4.1.js"></script>
+</head>
+<style>
+*{
+    margin: 0;
+}
+li{
+    list-style: none;
+}
+#div1{
+    height: 1000px;
+    background: yellow;
+}
+#div2{
+    height: 1000px;
+    background: green;
+}
+#div3{
+    height: 1000px;
+    background: red;
+}
+ul{
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+ul li{
+    float: left;
+    margin-right: 50px;
+    font-size: 30px;
+    
+}
+</style>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <!-- 锚点链接 只能用id选择器 -->
+    <ul>
+        <li><a href="#div1">a</a></li>
+        <li><a href="#div2">b</a></li>
+        <li><a href="#div3">c</a></li>
+    </ul>
+    <script>
+    $("a").on("click",function(){
+        $("div:target").css("background","black")
+        
+    })
+    </script>
+</body>
+</html>
