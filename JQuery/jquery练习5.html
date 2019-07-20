@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./JS/jquery-3.4.1.js"></script>
+    <style>
+    thead td{
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
+        font-weight: bold;
+        border-bottom: 1px solid #000000;   
+        border-collapse: collapse;
+     }
+     tbody #td1,#td2,#td3{
+        width: 80px;
+        background: yellow;
+     }
+     .selected{
+         background: red;
+     }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>暂住地</td>
+            </tr>
+        </thead>
+       <tbody>
+           <tr id="parent"><td id="td1" colspan="3">表单联系人</td></tr>
+           <tr id="zs">
+            <td>张三</td>
+            <td>男</td>
+            <td>湖南长沙</td>
+            <tr id="zl">
+                <td>赵六</td>
+                <td>男</td>
+                <td>浙江宁波</td>
+            </tr>
+           </tr>
+           <tr id="parent"><td id="td2" colspan="3">表单联系人</td></tr>
+           <tr id="ls">
+               <td>李四</td>
+               <td>男</td>
+               <td>浙江温州</td>
+           </tr>
+           <tr id="max">
+                <td>MAXMAN</td>
+                <td>男</td>
+                <td>浙江温州</td>
+            </tr>
+           <tr id="parent"><td id="td3" colspan="3">表单联系人</td></tr>
+           <tr id="ww">
+               <td>王五</td>
+               <td>男</td>
+               <td>山东青岛</td>
+           </tr>
+           <tr id="rr">
+                <td>Rain</td>
+                <td>男</td>
+                <td>浙江杭州</td>
+            </tr>
+       </tbody>
+    </table>
+    <script>
+        $("#td1").on("click",function(){
+            $(this).toggleClass("selected");
+        })
+    $("#td1").on("click",function(){
+        $("#zs").toggle()
+        $("#zl").toggle()
+        
+    })
+
+    $("#td2").on("click",function(){
+        $("#ls").toggle()
+        $("#max").toggle()
+    })
+    $("#td3").on("click",function(){
+        $("#ww").toggle()
+        $("#rr").toggle()
+    })
+    </script>
+</body>
+</html>

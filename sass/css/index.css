@@ -1,0 +1,146 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+#div1 {
+  color: #ff00ff; }
+#div1 .p1 {
+  border: 1px solid black; }
+#div1 .p1-span1 {
+  color: black; }
+#div1:hover {
+  background: red; }
+
+#div2 {
+  background-color: #ff00ff; }
+
+#div3 {
+  border-color: #ff00ff;
+  border-width: 1px; }
+
+#div4 {
+  border-left-color: #ff00ff; }
+
+#div5 {
+  width: 10px; }
+
+#div6 {
+  width: 100px;
+  height: 200px;
+  background: red; }
+
+#div7, #div8 {
+  font-size: 20px;
+  color: blue; }
+
+#div8 {
+  background: #000; }
+
+#div9 {
+  width: 10px;
+  height: 11px;
+  font-size: 20px;
+  border-width: 10px;
+  width: 2%; }
+
+#div10 {
+  background-image: url("css/xx.jpg"); }
+
+#div11 {
+  color: #ff6666;
+  border-color: #990000; }
+
+#div12 {
+  border: 1px solid black; }
+
+#div13 {
+  color: red; }
+
+#div-red {
+  color: red; }
+
+/*color is red*/
+#div-1 {
+  margin: 1px; }
+
+#div-2 {
+  margin: 2px; }
+
+#div-3 {
+  margin: 3px; }
+
+#div-4 {
+  margin: 4px; }
+
+#div-5 {
+  margin: 5px; }
+
+#div-6 {
+  margin: 6px; }
+
+#div-7 {
+  margin: 7px; }
+
+#div-8 {
+  margin: 8px; }
+
+#div-9 {
+  margin: 9px; }
+
+#div-10 {
+  margin: 10px; }
+
+#span-a {
+  color: red; }
+
+#span-b {
+  color: red; }
+
+#span-c {
+  color: red; }
+
+#span-d {
+  color: red; }
+
+#p-0 {
+  color: red; }
+
+#p-1 {
+  color: red; }
+
+#p-2 {
+  color: red; }
+
+#p-3 {
+  color: red; }
+
+#p-4 {
+  color: red; }
+
+#p-5 {
+  color: red; }
+
+#p-6 {
+  color: red; }
+
+#p-7 {
+  color: red; }
+
+#p-8 {
+  color: red; }
+
+#p-9 {
+  color: red; }
+
+#div23 {
+  color: blue; }
+
+/*! 寮哄埗*/
+/*
+*/
+
+/*# sourceMappingURL=index.css.map */

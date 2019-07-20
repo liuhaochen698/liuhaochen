@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        width: 960px;
+        height: 2000px;
+    }
+    .div1,.div2,.div5{
+        width: 100%;
+        height: 100px;
+        background: gray;
+        margin: 0 auto;
+        line-height: 100px;
+        text-align: center;
+    }
+    .div2{
+        margin-top: 10px;
+    }
+    .img1{
+        width: 960px;
+        height: 500px;
+        background: url("http://pic1.win4000.com/wallpaper/c/53cdd1f7c1f21.jpg") no-repeat center/cover;
+        margin-top: 10px;
+        
+    }
+    .clearfixed::after{
+        content: "";
+        clear: both;
+        display: block;
+    }
+    .nav .div3{
+        width: 65%;
+        float: left;
+        background: blue;
+        height: 300px;
+        position: relative;
+    }
+    .nav .div4{
+        width: 30%;
+        float: right;
+        background: red;
+        height: 300px;
+        position: relative;
+
+    }
+    .nav p{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+
+    }
+    @media (max-width:600px){
+        .nav .div3,.nav .div4{
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div1">页头</div>
+        <div class="div2">导航</div>
+        <div class="img1"></div>
+        <div class="nav clearfixed">
+            <article class="div3"><p>The Palace Museum start to set up in A.D.1406, the Palace Museum have the size courtyard more
+                than 90s and the house contain 980 and add up to 8704.the Palace Museum surroundings surround 12 meters in
+                height, long the Palace Museum wall of 3400 meters, form is one rectangular city defense, there is 52 meter
+                wide moat outside the wall surround, formation a fortress of severe barracks.The Palace Museum has 4 doors,
+                center door Wu door, east door Donghua door, west door Xihua door, north door Shengwu door.</p> </article>
+            <aside class="div4"><p> Remains of the Peking Man (homo erectus) are located on the Dragon Bone Hill at Zhoukoudian
+                Village, Fangshan District, Beijing. In the 1920s, archaeologists discovered the complete skull of Peking
+                Man. Later, more skull bones as well as stone and bone instruments were unearthed. Peking Man lived 690,000
+                years ago, during Paleolithic times. Findings indicate that Peking Man knew how to make fires.</p> </aside>
+        
+        </div>
+        <footer class="div5">页脚</footer>
+        </div>
+        
+    
+</body>
+</html>

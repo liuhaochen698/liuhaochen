@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #can{
+        background: red;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="300" height="300"></canvas>
+    <script>
+    var oCan = document.querySelector("#can");
+    var context = oCan.getContext("2d");
+    context.beginPath();
+    context.moveTo(10,10);
+    context.lineTo(50,50);
+    context.lineWidth = 10;
+    context.strokeStyle = "blue"
+    context.stroke();
+    
+    </script>
+</body>
+</html>

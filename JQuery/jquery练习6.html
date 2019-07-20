@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./JS/jquery-3.4.1.js"></script>
+    <style>
+    thead td{
+        font-size: 20px;
+        font-weight: bold;
+        width: 70px;
+        height: 70px;
+        padding: 10px;
+    }
+    .selected{
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>暂住地</td>
+            
+        </thead>
+        <tbody>
+                <tr class="parent"><td id="td1" ><input type="radio" name="test">张山</td><td>男</td><td>浙江宁波</td></tr>
+                <tr class="parent"><td id="td2" ><input type="radio" name="test">李四</td><td>男</td><td>浙江宁波</td></tr>
+                <tr class="parent"><td id="td3" ><input type="radio" name="test">王五</td><td>男</td><td>浙江宁波</td></tr>
+        </tbody>
+    </table>
+    <script>
+    $(".parent").on("click",function(){
+        // $(this).addClass("selected");
+        // $(this).siblings().removeClass("selected");
+        // $(this).find(":radio").prop("checked",true);
+        $(this).addClass("selected").siblings().removeClass("selected").end().find(":radio").prop("checked",true);
+    })
+   
+    </script>
+</body>
+</html>
