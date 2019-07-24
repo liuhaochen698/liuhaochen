@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "file-loader": "^4.1.0",
+    "url-loader": "^2.1.0"
+  }
+}
