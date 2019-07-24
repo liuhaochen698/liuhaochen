@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //属性简洁表示法 包括属性和方法
+    //属性名表达式 :[]
+
+
+    // var name='a';
+    // var age = 12;
+    // var str = 'school'
+    // var obj = {
+    //     name,
+    //     age
+    // } 
+    // var obj2 ={
+    //     [str]:'aaa'
+    // }
+    // console.log(obj2);
+
+    // var obj ={
+    //     name:'liuhaochen',
+    //     age:21,
+    //     sex:'nan',
+    //     para:'xxx'
+    // }
+
+    // function foo (para){
+    //     return obj[para];
+    // }
+    // console.log(foo("name"));
+    // console.log(foo("age"));
+    // console.log(foo("sex"));
+    
+       
+    // var obj ={
+    //     name:'a',
+    // }
+
+    // var name = 'xiaoming'    
+    // var obj ={
+    //     name,
+    //     showName(){
+    //         console.log(this.name);
+            
+    //     }
+    // }
+    // obj.showName();
+
+    //Object.is(‘foo’, ‘foo’); 比较两个值是否严格相等，与严格比较运 算符（===）的行为基本一致 +0===-0 NaN===NaN
+    // console.log(Object.is(1,1)); //true
+    
+
+    // let obj = {
+    //     name:1
+    // }
+    // let obj2 ={
+    //     name:2
+    // }
+    // console.log(Object.is(obj2,obj)); //false
+    // console.log(NaN===NaN);
+    // console.log(0===-0);
+    // console.log(Object.is(NaN,NaN));
+    // console.log(Object.is(0,-0));
+    
+
+    //Object.assign(); 对象合并,第一个参数是目标对象，后面的参数 都是源对象。浅拷贝
+    // var obj = {
+    //     name:'xiaoming'
+    // }
+    // var obj2 = {
+    //     name:'xiaogang',
+    //     age:20,
+    //     school:'heida',
+    //     parent:{
+    //         father:'bbb'
+    //     }
+    // }
+    // Object.assign(obj,obj2)
+    // obj2.parent.father='ccccc';
+    // console.log(obj);
+
+    //‘name’ in	obj 判断对象是否包含某个属性  0	in arr 判断数组位置是否有值
+    // let obj ={
+    //     name:'a'
+    // }
+    // if(obj.name){
+    //     console.log('有该属性');
+        
+    // }
+    // console.log("name" in obj);
+    // console.log(obj.hasOwnProperty('name'));
+    
+    // if("name" in obj){
+    //     console.log('有该属性');
+        
+    // }
+
+    // function Person(){
+    //     this.name = 'xiaoming'
+    // }
+    // Person.prototype.age = 12;
+    // let student1 = new Person()
+    // console.log(student1.age);
+    
+    // console.log(student1.name);
+    // console.log("age" in student1);
+    // console.log(student1.hasOwnProperty('age'));
+    
+    // var arr =[1,2,3,4,8,6,7];
+    // console.log(8 in arr);
+
+    let obj = {
+        name:'xiaoming',
+        age:'12',
+        school:'heida'
+    }
+    delete obj.school;
+    console.log(obj);
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    let name	=	Symbol();
+    // obj[name]	=	'XX';
+
+    let obj = {
+        name : 'xiaoming',
+        age:'12',
+        [name]: 'liuhaochen'
+    }
+    // console.log(obj[name]);
+
+    //Symbol属性不会出现在for...in、for...of循环中
+    for( let item in obj ){
+        console.log(item);
+        
+    }
+    
+
+    
+
+    </script>
+</body>
+</html>
