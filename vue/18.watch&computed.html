@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{fullname}}</h1>
+      <button @click = "change">change</button>
+      <button @click = "change2">change2</button>
+      <div>
+          <h1>{{fullName2}}</h1>
+      </div>
+    </div>    
+    <script>
+
+        let vm = new Vue({
+            el: "#app",
+            data: {
+             firstName: 'foo',
+             lastName:"bar",
+             fullname:"foo bar"
+            },
+            methods:{
+                change(){
+                    this.firstName = 'aa'
+                },
+                change2(){
+                    this.lastName = 'bb'
+                },
+            
+            },
+            computed:{
+             //一个变量受多个变量影响
+             fullName2(){
+                 return this.firstName+" "+ this.lastName
+             }   
+
+            },
+            watch:{
+             //一个变量影响多个变量
+                firstName(val){
+                    console.log(val);
+                    this.fullname = val +" " +  this.lastName;
+                },
+                lastName(val){
+                    this.fullname = this.firstName + " " + val
+                }
+            }    
+        })
+
+    </script>
+</body>
+
+</html>

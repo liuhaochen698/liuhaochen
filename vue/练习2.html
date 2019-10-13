@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .active {
+            background: #ff99ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" name="find" placeholder="搜索" v-model="findData"><button @click="findEvent">搜索</button>
+        <div>
+            <input type="text" placeholder="名称" v-model="setData1"><input type="number" placeholder="0"
+                v-model.number="setData2"><button @click="addEvent">添加</button>
+            <table>
+                <thead>
+                    <td>选择</td>
+                    <td>商品名称</td>
+                    <td>商品价格</td>
+                    <td>操作</td>
+                </thead>
+                <tbody>
+                    <tr v-for="(val,index) in shop" :class="{active:val.isShow}" @click="checks(index)">
+                        <td><input type="checkbox" v-model="checkData1" :value="val.id"></td>
+                        <td>{{val.name}}</td>
+                        <td>{{val.price}}</td>
+                        <td><button @click.stop="goEvent(val.id)">删除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button @click.stop="selectDeleteEvent">选中删除</button>
+            <span>价格:{{sumData}}</span>
+        </div>
+
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                setData1: "",
+                setData2: "",
+                findData: "",
+                checkIt: [],
+                nowId:"5",
+                msg: "0",
+                shop: [
+                    {
+                        id: "1",
+                        name: "衣服",
+                        price: "123",
+                        isShow: false,
+
+                    },
+                    {
+                        id: "2",
+                        name: "裤子",
+                        price: "456",
+                        isShow: false
+
+                    },
+                    {
+                        id: "3",
+                        name: "鞋",
+                        price: "444",
+                        isShow: false
+                    },
+                    {
+                        id: "4",
+                        name: "帽子",
+                        price: "666",
+                        isShow: false
+                    },
+                    {
+                        id: "5",
+                        name: "手套",
+                        price: "88",
+                        isShow: false
+
+                    }
+                ]
+
+            },
+            methods: {
+                addEvent() {
+                    let obj = {
+                        name: this.setData1,
+                        price: this.setData2,
+                        isShow: false,
+                        id: this.nowId++
+                    }
+                    this.shop.push(obj)
+                },
+                findEvent() {
+                    let _this = this;
+                    let findArr = [];
+                    findArr = this.shop.filter(function (val, index) {
+                        if (val.name.includes(_this.findData) || ((val.price + "").includes(_this.findData))) {
+                            return val;
+                        }
+
+                    })
+                    this.shop = findArr;
+
+
+                },
+                checks(index) {
+                    this.shop[index].isShow = !this.shop[index].isShow
+
+                },
+                goEvent(id) {
+                    let goArr = [];
+                    goArr = this.shop.filter(function (val, index) {
+                        if (val.id != id) {
+                            return val
+                        }
+
+                    });
+                    this.shop = goArr;
+                },
+                selectDeleteEvent() {
+                    let selectDeleteArr = this.shop.filter(function (val, index) {
+                        if (!val.isShow) {
+                            return val;
+                        }
+                    })
+                    this.shop = selectDeleteArr;
+                }
+
+
+            },
+            computed: {
+                checkData1() {
+                    let arr = [];
+                    checkArr = this.shop.map(function (val, index) {
+                        if (val.isShow) {
+                            arr.push(val.id)
+                        }
+                    })
+                    return arr;
+                },
+                sumData() {
+                    let sum = 0;
+                    sumArr = this.shop.map(function (val, index) {
+                        if (val.isShow) {
+                            sum = sum + parseInt(val.price);
+                        }
+                    })
+                    return sum;
+                }
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

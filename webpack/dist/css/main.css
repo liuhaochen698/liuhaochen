@@ -1,13 +1,41 @@
-h1{
-    font-size: 50px;
-    color: blue;
+#div2 {
+  width: 100px;
+  height: 100px;
+  background: red;
 }
-img{
-    width: 200px;
-    height: 200px;
+
+h1 {
+  font-size: 50px;
+  color: blue;
 }
-#div1{
-    width: 300px;
-    height: 300px;
-    background-image: url(http://localhost:8081/images/c670311158823bdda6464a4b112086e4.jpg);
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+#div1 {
+  width: 300px;
+  height: 300px;
+  background-image: url(http://localhost:8081/images/c670311158823bdda6464a4b112086e4.jpg);
+}
+
+::-webkit-input-placeholder {
+  background: red;
+}
+
+::-moz-placeholder {
+  background: red;
+}
+
+:-ms-input-placeholder {
+  background: red;
+}
+
+::-ms-input-placeholder {
+  background: red;
+}
+
+::placeholder {
+  background: red;
 }

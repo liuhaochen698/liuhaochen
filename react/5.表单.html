@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class Foo extends React.Component{
+        constructor(props){
+            super(props)
+            this.state={
+            str:""  
+        }
+        this.change = this.change.bind(this)
+    }
+        change(event){
+           
+            this.setState({
+                str:event.target.value
+            })
+        }
+        cheChange(event){
+            console.log(event.target.checked);
+            
+        }      
+        render(){
+            return(
+            <div> 
+                <input name="username" onChange={this.change} type="text"/>
+                <input name="che" value="che1" onChange={this.cheChange.bind(this)} type="checkbox"/>
+                <h1>{this.state.str}</h1>
+            </div>
+            )
+        }
+    }
+        ReactDOM.render(
+           <Foo/>,
+            document.getElementById("root")
+        )
+    </script>
+</body>
+</html>

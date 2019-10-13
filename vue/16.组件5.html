@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div :is = "com"> -->
+       <liu @click.native ="clickHandle"></liu>     
+        <!-- </div> -->
+    </div>    
+    <template id="tem">
+        <div>
+            <h1>hello {{str}}</h1>
+            <h1>hello {{msg}}</h1>
+            <h1>hello world</h1>
+            <test></test>
+        </div>
+    </template>
+ 
+
+    <script>
+
+        let vm = new Vue({
+            el: "#app",
+            data: {
+               com:"liu"
+            },
+            methods:{
+               clickHandle(){
+                   console.log(123);
+                   
+               } 
+            },
+            components: {
+                "liuhaochen": {
+                   template: "#tem",
+                   components:{
+                    "test":{
+                       template: `<h1>你好</h1>`
+                    }
+                   },
+                   data(){
+                       return{
+                           str:"liuhaochen",
+                           msg:"abc"
+                       }
+                   }
+                    
+                    },  
+                   "liu":{
+                       template:`<h1>liu</h1>`
+                   }
+                },
+               
+               
+
+            
+
+        })
+
+    </script>
+</body>
+
+</html>

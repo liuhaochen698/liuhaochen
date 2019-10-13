@@ -2,5 +2,8 @@
   "devDependencies": {
     "file-loader": "^4.1.0",
     "url-loader": "^2.1.0"
+  },
+  "dependencies": {
+    "react-router-dom": "^5.0.1"
   }
 }

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .container {
+            margin: 0 auto;
+            width: 800px;
+        }
+
+        .table thead {
+            background: #000;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class Foo extends React.Component{
+          constructor(props){
+              super(props)
+              this.state={
+                setData1:"",
+                setData2:"",
+                setData3:"",
+                nowid:"0",
+                dataList:[
+          {
+              id:0,
+              isActive:false,
+              info:"上课",
+              count:2,
+              time:'2018-09-14'
+            },{
+              id:1,
+              isActive:false,
+              info:'吃饭',
+              count:2,
+              time:'2018-09-14'
+            },{
+              id:2,
+              isActive:false,
+              info:'午休',
+              count:2,
+              time:'2018-09-14'
+            },{
+              id:3,
+              isActive:false,
+              info:'篮球',
+              count:2,
+              time:'2018-09-14'
+            },{
+              id:4,
+              isActive:false,
+              info:'聚会',
+              count:2,
+              time:'2018-09-14'
+            },{
+              id:5,
+              isActive:false,
+              info:'上课',
+              count:2,
+              time:'2018-09-14'
+            }
+          ]
+              }
+          }
+          clickHandle(){
+            let obj ={
+                info:this.state.setData1,
+                time:this.state.setData2,
+                count:this.state.setData3,
+                isActive:false,
+                id:this.state.nowid++
+
+            }
+            console.log(obj);
+            var arr = this.state.dataList;
+            arr.push(obj)
+            this.setState({
+                dataList:arr
+            })
+          }
+          render(){
+            let str = this.state.dataList.map((item,index,arr)=>{
+                    return(  
+                    <tr key={item.id}>
+                        <td><input type="checkbox"/></td>
+                        <td>{item.info}</td>
+                        <td>{item.time}</td>
+                        <td>{item.count}</td>
+                        <td><button>删除</button></td>
+                    </tr>
+                    )
+                })
+            return(
+            <div className="container">
+        <form className="form-inline">
+            <div className="form-group">
+                <label for="exampleInputName2"></label>
+                <input type="text" className="form-control" id="exampleInputName2" placeholder=""/>
+            </div>
+            <div className="form-group">
+                <label for="exampleInputName2"></label>
+                <input type="date" className="form-control" id="exampleInputEmail2" placeholder="2019/08/08"/>
+            </div>
+            <div className="form-group">
+                <label for="exampleInputEmail2"></label>
+                <input type="email" className="form-control" id="exampleInputEmail2" placeholder=""/>
+            </div>
+            <button type="button" className="btn btn-info" onClick={this.clickHandle.bind(this)}>添加</button>
+        </form>
+        <div className="bs-example" data-example-id="simple-table">
+            <table className="table">
+                <caption>Optional table caption.</caption>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>待办事项</th>
+                        <th>待办时间</th>
+                        <th>预计用时</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {str}
+                </tbody>
+            </table>
+        </div>
+            </div>
+            )
+          }
+      }
+      ReactDOM.render(
+          <Foo/>,
+          document.getElementById("root")
+      )
+      </script>
+</body>
+
+</html>

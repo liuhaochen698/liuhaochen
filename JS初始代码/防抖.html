@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #li1{
+        height: 300px;
+
+    }
+    .li2{
+        height: 400px;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li id="li1" class="li2">1111</li>
+        <li>22222</li>
+    </ul>
+    <button id="btn">click</button>
+    <script>
+       function fangdou (fn,delay){
+        var timer =null;
+        return function(){
+            clearInterval(timer)
+            timer = setInterval(function () {
+                fn.apply(this);
+                clearInterval(timer)
+            }.bind(this), delay)
+        }
+        
+       }
+       var oBtn = document.getElementById("btn")
+       oBtn.onclick = fangdou(function(){
+           console.log(this);
+           
+           console.log(Date.now());
+           
+       },300)
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    class Foo2 extends React.Component{
+        constructor(props){
+            super(props)
+        }
+        addHandle(num){
+            this.props.addF(num)
+        }
+        render(){
+            return(
+                <button onClick={this.addHandle.bind(this,10)}>调兵</button>
+            )
+        }
+    }
+    class Foo extends React.Component{
+        constructor(props){
+            super(props)
+            this.state={
+                total:100,
+                count:100
+            }
+        
+        }
+        add(num){
+                this.setState({
+                    count:this.state.count+num,
+                    total:this.state.total-num,
+                    
+                })
+                
+            }
+        render(){
+            return(
+            <div>
+            <h1>国王有{this.state.total}士兵</h1>    
+            <span>将军a有{this.state.count}士兵</span>
+            <Foo2 addF={this.add.bind(this)}/>
+            </div>
+         )
+        }
+    }
+    
+    ReactDOM.render(
+        <Foo/>,
+        document.getElementById("root")
+    )
+    </script>
+</body>
+</html>
