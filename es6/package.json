@@ -96,7 +96,7 @@
     "fsevents": "^1.2.9",
     "get-value": "^2.0.6",
     "fs.realpath": "^1.0.0",
-    "glob-parent": "^2.0.0",
+    "glob-parent": "^5.1.2",
     "globals": "^9.18.0",
     "graceful-fs": "^4.2.0",
     "extglob": "^0.3.2",
