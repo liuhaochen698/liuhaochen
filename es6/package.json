@@ -177,7 +177,7 @@
     "ret": "^0.1.15",
     "safe-regex": "^1.1.0",
     "source-map": "^0.5.7",
-    "set-value": "^2.0.1",
+    "set-value": "^4.0.1",
     "slash": "^1.0.0",
     "snapdragon-node": "^2.1.1",
     "snapdragon-util": "^3.0.1",
